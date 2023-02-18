@@ -1,34 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import { compareAsc, format } from "date-fns";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [date, setDate] = useState<null | Date>(null);
 
+  const handleDate = (value: any) => {
+    const date = new Date(value.target.value);
+    date.setTime(date.getTime() + date.getTimezoneOffset() * 60 * 1000);
+    setDate(date);
+  };
+
+  const actualDate = format(new Date(), "yyyy-MM-dd");
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <>
+      <header>
+        <h1>Insira a data das suas próximas férias</h1>
+        <input type="date" onChange={(e) => handleDate(e)} min={actualDate} />
+      </header>
+      <main>
+        <div className="App">
+          <h1>Ferômetro</h1>
+          {!!date ? (
+            <p>
+              Suas próximas férias começam no dia{" "}
+              {format(new Date(date), "dd-MM-yyyy")}
+            </p>
+          ) : (
+            <p>Insira a data de início da sua próxima férias</p>
+          )}
+        </div>
+      </main>
+      <footer></footer>
+    </>
+  );
 }
 
-export default App
+export default App;
