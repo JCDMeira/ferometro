@@ -31,8 +31,9 @@ export const Clock: react.FC<any> = ({ date }) => {
   }, []);
 
   return (
-    <div className="clock-container">
+    <span>
+      Suas próximas féerias começam em{" "}
       <span className="neon-text">{dateTimeFormated}</span>
-    </div>
+    </span>
   );
 };
