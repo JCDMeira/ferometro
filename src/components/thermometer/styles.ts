@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Thermometer = styled.div`
   width: 23px;
-  height: 800px;
+  height: 730px;
   background: #fff;
   border-radius: 10px;
   display: flex;

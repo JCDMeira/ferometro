@@ -45,7 +45,7 @@ function App() {
               <p>Insira a data de início da sua próxima férias</p>
             )}
           </div>
-          <Thermometer />
+          <Thermometer date={date} />
         </div>
       </main>
       <footer></footer>
