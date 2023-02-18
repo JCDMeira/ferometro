@@ -1,0 +1,10 @@
+.neon-text {
+  font-family: "Graduate", cursive;
+  font-size: 2rem;
+  font-weight: 600;
+
+  color: #fff;
+  text-shadow: 0 0 7px #94a3ce, 0 0 10px #94a3ce, 0 0 21px #94a3ce,
+    0 0 42px #0466c8, 0 0 82px #0466c8, 0 0 92px #0466c8, 0 0 102px #0466c8,
+    0 0 151px #0466c8;
+}

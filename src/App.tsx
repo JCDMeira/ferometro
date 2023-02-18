@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
-import { compareAsc, format } from "date-fns";
+import { format, addDays } from "date-fns";
+import { Clock } from "./components/Clock";
 
 function App() {
   const [date, setDate] = useState<null | Date>(null);
@@ -11,21 +12,33 @@ function App() {
     setDate(date);
   };
 
-  const actualDate = format(new Date(), "yyyy-MM-dd");
+  const minDate = format(addDays(new Date(), 1), "yyyy-MM-dd");
   return (
     <>
       <header>
-        <h1>Insira a data das suas próximas férias</h1>
-        <input type="date" onChange={(e) => handleDate(e)} min={actualDate} />
+        {!!date ? (
+          <>
+            <h1>Resete a data</h1>
+            <button onClick={() => setDate(null)}>Resetar</button>
+          </>
+        ) : (
+          <>
+            <h1>Insira a data das suas próximas férias</h1>
+            <input type="date" onChange={(e) => handleDate(e)} min={minDate} />
+          </>
+        )}
       </header>
       <main>
         <div className="App">
           <h1>Ferômetro</h1>
           {!!date ? (
-            <p>
-              Suas próximas férias começam no dia{" "}
-              {format(new Date(date), "dd-MM-yyyy")}
-            </p>
+            <>
+              <p>
+                Suas próximas férias começam no dia{" "}
+                {format(new Date(date), "dd-MM-yyyy")}
+              </p>
+              <Clock date={date} />
+            </>
           ) : (
             <p>Insira a data de início da sua próxima férias</p>
           )}
