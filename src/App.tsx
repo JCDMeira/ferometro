@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { format, addDays } from "date-fns";
 import { Clock } from "./components/Clock";
+import Thermometer from "./components/thermometer";
 
 function App() {
   const [date, setDate] = useState<null | Date>(null);
@@ -30,18 +31,21 @@ function App() {
       </header>
       <main>
         <div className="App">
-          <h1>Ferômetro</h1>
-          {!!date ? (
-            <>
-              <p>
-                Suas próximas férias começam no dia{" "}
-                {format(new Date(date), "dd-MM-yyyy")}
-              </p>
-              <Clock date={date} />
-            </>
-          ) : (
-            <p>Insira a data de início da sua próxima férias</p>
-          )}
+          <div>
+            <h1>Ferômetro</h1>
+            {!!date ? (
+              <>
+                <p>
+                  Suas próximas férias começam no dia{" "}
+                  {format(new Date(date), "dd-MM-yyyy")}
+                </p>
+                <Clock date={date} />
+              </>
+            ) : (
+              <p>Insira a data de início da sua próxima férias</p>
+            )}
+          </div>
+          <Thermometer />
         </div>
       </main>
       <footer></footer>
