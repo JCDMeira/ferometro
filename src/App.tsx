@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { format, addDays } from "date-fns";
 import { Clock } from "./components/Clock";
 import Thermometer from "./components/thermometer";
@@ -8,7 +8,16 @@ import Header from "./components/Header";
 import * as S from "./styles/style";
 
 function App() {
-  const [date, setDate] = useState<null | Date>(null);
+  const startDate = (() => {
+    const newStartDate = localStorage.getItem("date") || null;
+    return newStartDate ? newStartDate : null;
+  })();
+
+  const [date, setDate] = useState<null | Date>(
+    !!startDate ? new Date(startDate) : null
+  );
+  const [start, setStart] = useState(false);
+  console.log({ startDate, date });
 
   const handleDate = (value: any) => {
     const date = new Date(value.target.value);
@@ -16,34 +25,56 @@ function App() {
     setDate(date);
   };
 
+  const handleSetStartDate = () => {
+    if (!date) return;
+    const dateString = date.toString();
+    setStart(true);
+    localStorage.setItem("date", dateString);
+  };
+
   const minDate = format(addDays(new Date(), 1), "yyyy-MM-dd");
+
+  useEffect(() => {
+    if (!!date) {
+      setStart(true);
+    }
+  }, []);
   return (
     <>
       <GlobalStyle />
       <Header />
       <main>
-        {!!date ? (
+        {start ? (
           <S.Content>
             <S.Divider>
               <Thermometer date={date} />
             </S.Divider>
             <S.Divider>
-              <h1>Resete a data</h1>
-              <button onClick={() => setDate(null)}>Resetar</button>
-
-              <p>
-                Suas próximas férias começam no dia{" "}
-                {format(new Date(date), "dd-MM-yyyy")}
-              </p>
+              {!!date && (
+                <p>
+                  Suas próximas férias começam no dia{" "}
+                  {format(new Date(date), "dd-MM-yyyy")}
+                </p>
+              )}
               <Clock date={date} />
+              <S.ResetButton
+                onClick={() => {
+                  setDate(null);
+                  setStart(false);
+                }}
+              >
+                Mudar data das férias
+              </S.ResetButton>
             </S.Divider>
           </S.Content>
         ) : (
-          <>
+          <S.NoContent>
             <h1>Insira a data das suas próximas férias</h1>
-            <input type="date" onChange={(e) => handleDate(e)} min={minDate} />
-            <p>Insira a data de início da sua próxima férias</p>
-          </>
+            <input type="date" onBlur={(e) => handleDate(e)} min={minDate} />
+            <S.ResetButton onClick={handleSetStartDate}>
+              Configurar férias
+            </S.ResetButton>
+          </S.NoContent>
         )}
       </main>
       <Footer />

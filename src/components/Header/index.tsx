@@ -10,9 +10,6 @@ const Header: React.FC = () => {
         Aqui você consegue saber exatamente quanto tempo falta para as suas
         férias. E se planejar adequadamente para curtir.
       </p>
-      <p>
-        Se ainda não testou, é só inserir a data das suas próximas férias abaixo
-      </p>
     </S.Header>
   );
 };

@@ -2,11 +2,14 @@ import styled from "styled-components";
 
 export const Thermometer = styled.div`
   width: 23px;
-  height: 730px;
+  height: 365px;
   background: #fff;
   border-radius: 10px;
   display: flex;
   align-items: flex-end;
+  @media (max-width: 380px) {
+    display: none;
+  }
 `;
 
 type SliderProps = {

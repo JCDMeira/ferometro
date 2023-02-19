@@ -8,23 +8,15 @@ export const GlobalStyle = createGlobalStyle`
 
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  margin: 0;
-  padding:0;
-  box-sizing: border-box;
   display: flex;
-  place-items: center;
-  min-width: 100vw;
-  min-height: 100vh;
-
+  box-sizing:border-box ;
+  width: 100vw;
+  margin:0 ;
+  padding:0 ;
+  box-sizing:border-box ;
 }
 
 h1 {

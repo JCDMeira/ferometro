@@ -7,17 +7,17 @@ export const Header = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: absolute;
 
+  position: relative;
   top: 0;
-  position: absolute;
+
+  background-color: #2d333b;
 
   h1 {
+    color: #ff4d97;
     margin: 15px;
   }
   p {
     margin: 0;
   }
-
-  background-color: gray;
 `;

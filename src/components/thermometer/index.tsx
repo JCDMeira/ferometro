@@ -14,7 +14,7 @@ const Thermometer: React.FC<ThermometerProp> = ({ date }) => {
   const difference = differenceInSeconds(newDate, actualDate);
   const days = Math.trunc(difference / (60 * 60 * 24));
   const diffDay = days < 365 ? days : 365;
-  const SliderHeight = (365 - diffDay) * 2;
+  const SliderHeight = 365 - diffDay;
 
   useEffect(() => {
     const timer = setInterval(() => {
