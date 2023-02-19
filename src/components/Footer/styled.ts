@@ -2,12 +2,15 @@ import styled from "styled-components";
 
 export const Footer = styled.footer`
   width: 100vw;
+  height: 50px;
   text-align: center;
   font-size: 1.6rem;
-  height: 6rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute;
+
+  bottom: 0;
   a {
     color: #ff6347;
     cursor: pointer;

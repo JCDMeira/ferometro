@@ -5,6 +5,7 @@ import Thermometer from "./components/thermometer";
 import { GlobalStyle } from "./styles/global";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import * as S from "./styles/style";
 
 function App() {
   const [date, setDate] = useState<null | Date>(null);
@@ -21,9 +22,12 @@ function App() {
       <GlobalStyle />
       <Header />
       <main>
-        <div>
-          {!!date ? (
-            <>
+        {!!date ? (
+          <S.Content>
+            <S.Divider>
+              <Thermometer date={date} />
+            </S.Divider>
+            <S.Divider>
               <h1>Resete a data</h1>
               <button onClick={() => setDate(null)}>Resetar</button>
 
@@ -32,20 +36,15 @@ function App() {
                 {format(new Date(date), "dd-MM-yyyy")}
               </p>
               <Clock date={date} />
-              <Thermometer date={date} />
-            </>
-          ) : (
-            <>
-              <h1>Insira a data das suas próximas férias</h1>
-              <input
-                type="date"
-                onChange={(e) => handleDate(e)}
-                min={minDate}
-              />
-              <p>Insira a data de início da sua próxima férias</p>
-            </>
-          )}
-        </div>
+            </S.Divider>
+          </S.Content>
+        ) : (
+          <>
+            <h1>Insira a data das suas próximas férias</h1>
+            <input type="date" onChange={(e) => handleDate(e)} min={minDate} />
+            <p>Insira a data de início da sua próxima férias</p>
+          </>
+        )}
       </main>
       <Footer />
     </>
