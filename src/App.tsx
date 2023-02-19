@@ -3,6 +3,7 @@ import { format, addDays } from "date-fns";
 import { Clock } from "./components/Clock";
 import Thermometer from "./components/thermometer";
 import { GlobalStyle } from "./global";
+import Footer from "./components/Footer";
 
 function App() {
   const [date, setDate] = useState<null | Date>(null);
@@ -18,24 +19,24 @@ function App() {
     <>
       <GlobalStyle />
       <header>
-        {!!date ? (
-          <>
-            <h1>Resete a data</h1>
-            <button onClick={() => setDate(null)}>Resetar</button>
-          </>
-        ) : (
-          <>
-            <h1>Insira a data das suas próximas férias</h1>
-            <input type="date" onChange={(e) => handleDate(e)} min={minDate} />
-          </>
-        )}
+        <h1>Ferômetro</h1>
+        <p>
+          Aqui você consegue saber exatamente quanto tempo falta para as suas
+          férias. E se planejar adequadamente para curtir.
+        </p>
+        <p>
+          Se ainda não testou, é só inserir a data das suas próximas férias
+          abaixo
+        </p>
       </header>
       <main>
         <div className="App">
           <div>
-            <h1>Ferômetro</h1>
             {!!date ? (
               <>
+                <h1>Resete a data</h1>
+                <button onClick={() => setDate(null)}>Resetar</button>
+
                 <p>
                   Suas próximas férias começam no dia{" "}
                   {format(new Date(date), "dd-MM-yyyy")}
@@ -44,12 +45,20 @@ function App() {
                 <Thermometer date={date} />
               </>
             ) : (
-              <p>Insira a data de início da sua próxima férias</p>
+              <>
+                <h1>Insira a data das suas próximas férias</h1>
+                <input
+                  type="date"
+                  onChange={(e) => handleDate(e)}
+                  min={minDate}
+                />
+                <p>Insira a data de início da sua próxima férias</p>
+              </>
             )}
           </div>
         </div>
       </main>
-      <footer></footer>
+      <Footer />
     </>
   );
 }
