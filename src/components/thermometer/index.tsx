@@ -23,8 +23,6 @@ const Thermometer: React.FC<ThermometerProp> = ({ date }) => {
     return () => clearInterval(timer);
   }, []);
 
-  console.log({ days, diffDay, SliderHeight });
-
   return (
     <S.Thermometer>
       <S.Slider SliderHeight={SliderHeight}>
