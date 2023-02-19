@@ -1,6 +1,6 @@
 import { differenceInSeconds } from "date-fns";
 import react, { useEffect, useState } from "react";
-import "./styles.css";
+import * as S from "./styles";
 
 const formatMinutes = (num: number): any => num % 60;
 
@@ -30,7 +30,7 @@ export const Clock: react.FC<any> = ({ date }) => {
   return (
     <span>
       Suas próximas féerias começam em{" "}
-      <span className="neon-text">{dateTimeFormated}</span>
+      <S.NeonText>{dateTimeFormated}</S.NeonText>
     </span>
   );
 };

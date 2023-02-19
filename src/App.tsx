@@ -1,8 +1,8 @@
 import { useState } from "react";
-import "./App.css";
 import { format, addDays } from "date-fns";
 import { Clock } from "./components/Clock";
 import Thermometer from "./components/thermometer";
+import { GlobalStyle } from "./global";
 
 function App() {
   const [date, setDate] = useState<null | Date>(null);
@@ -16,6 +16,7 @@ function App() {
   const minDate = format(addDays(new Date(), 1), "yyyy-MM-dd");
   return (
     <>
+      <GlobalStyle />
       <header>
         {!!date ? (
           <>
