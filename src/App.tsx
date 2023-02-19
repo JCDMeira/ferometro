@@ -4,6 +4,7 @@ import { Clock } from "./components/Clock";
 import Thermometer from "./components/thermometer";
 import { GlobalStyle } from "./global";
 import Footer from "./components/Footer";
+import Header from "./components/Header";
 
 function App() {
   const [date, setDate] = useState<null | Date>(null);
@@ -18,17 +19,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <header>
-        <h1>Ferômetro</h1>
-        <p>
-          Aqui você consegue saber exatamente quanto tempo falta para as suas
-          férias. E se planejar adequadamente para curtir.
-        </p>
-        <p>
-          Se ainda não testou, é só inserir a data das suas próximas férias
-          abaixo
-        </p>
-      </header>
+      <Header />
       <main>
         <div className="App">
           <div>
