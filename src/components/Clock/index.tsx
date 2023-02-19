@@ -2,10 +2,7 @@ import { differenceInSeconds } from "date-fns";
 import react, { useEffect, useState } from "react";
 import "./styles.css";
 
-const formatMinutes = (num: number): any => {
-  if (num <= 60) return num;
-  return formatMinutes(num - 60);
-};
+const formatMinutes = (num: number): any => num % 60;
 
 const formatToApresent = (num: number) => (num < 10 ? "0" + num : `${num}`);
 
