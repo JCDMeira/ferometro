@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../styles/variables";
 
 export const Footer = styled.footer`
   width: 100vw;
@@ -9,11 +10,11 @@ export const Footer = styled.footer`
   align-items: center;
   justify-content: center;
   position: absolute;
-  background-color: #2d333b;
+  background-color: ${theme.neutralLow};
 
   bottom: 0;
   a {
-    color: #ff4d97;
+    color: ${theme.primary};
     cursor: pointer;
   }
   a:hover {

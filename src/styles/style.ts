@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../styles/variables";
 
 export const Content = styled.div`
   display: flex;
@@ -39,7 +40,7 @@ export const ResetButton = styled.button`
   padding: 10px;
   border-radius: 8px;
   font-size: 20px;
-  background-color: #ff4d97;
-  color: #fff;
+  background-color: ${theme.primary};
+  color: ${theme.neutralHigh};
   border: none;
 `;

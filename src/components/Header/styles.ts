@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { theme } from "../../styles/variables";
 
 export const Header = styled.header`
   width: 100vw;
@@ -11,10 +12,10 @@ export const Header = styled.header`
   position: relative;
   top: 0;
 
-  background-color: #2d333b;
+  background-color: ${theme.neutralLow};
 
   h1 {
-    color: #ff4d97;
+    color: ${theme.primary};
     margin: 15px;
   }
   p {
