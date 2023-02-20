@@ -50,7 +50,10 @@ function App() {
         {start ? (
           <S.Content>
             <S.Divider>
-              <Thermometer date={date} />
+              <S.Case>
+                <Thermometer date={date} />
+                <S.CaseThermometer />
+              </S.Case>
             </S.Divider>
 
             <S.Divider>

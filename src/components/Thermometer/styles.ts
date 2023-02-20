@@ -8,6 +8,10 @@ export const Thermometer = styled.div`
   border-radius: 10px;
   display: flex;
   align-items: flex-end;
+
+  position: relative;
+  z-index: 999;
+
   @media (max-width: 380px) {
     display: none;
   }
