@@ -1,16 +1,13 @@
-import { differenceInSeconds } from "date-fns";
 import React, { useEffect, useState } from "react";
-
+import { differenceInSeconds } from "date-fns";
+import { ThermometerProp } from "../../types";
+import { getNewDate } from "../../util";
 import * as S from "./styles";
 
-type ThermometerProp = {
-  date: null | Date;
-};
-
-const Thermometer: React.FC<ThermometerProp> = ({ date }) => {
+export const Thermometer: React.FC<ThermometerProp> = ({ date }) => {
   const [actualDate, setActualDate] = useState(new Date());
 
-  const newDate = date || new Date();
+  const newDate = getNewDate(date);
   const difference = differenceInSeconds(newDate, actualDate);
   const days = Math.trunc(difference / (60 * 60 * 24));
   const diffDay = days < 365 ? days : 365;
@@ -31,5 +28,3 @@ const Thermometer: React.FC<ThermometerProp> = ({ date }) => {
     </S.Thermometer>
   );
 };
-
-export default Thermometer;

@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import { theme } from "../../styles/variables";
 
 export const Thermometer = styled.div`
   width: 23px;
   height: 365px;
-  background: #fff;
+  background: ${theme.neutralHigh};
   border-radius: 10px;
   display: flex;
   align-items: flex-end;
@@ -39,6 +40,6 @@ export const Circle = styled.div`
   width: 15px;
   height: 15px;
 
-  background: #ffffff;
+  background: ${theme.neutralHigh};
   border-radius: 50%;
 `;
