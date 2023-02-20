@@ -1,25 +1,19 @@
 import { differenceInSeconds } from "date-fns";
 import react, { useEffect, useState } from "react";
+import { ThermometerProp } from "../../types";
+import {
+  formatMinutes,
+  formatTimeString,
+  formatToApresent,
+  getNewDate,
+} from "../../util";
 import * as S from "./styles";
 
-const formatMinutes = (num: number): any => num % 60;
-
-const formatToApresent = (num: number) => (num < 10 ? "0" + num : `${num}`);
-
-const formatTimeString = (hours: number, minutes: number) => {
-  if (hours >= 1) {
-    return "horas";
-  } else if (minutes >= 1) {
-    return "minutos";
-  } else {
-    return "segundos";
-  }
-};
-
-export const Clock: react.FC<any> = ({ date }) => {
+export const Clock: react.FC<ThermometerProp> = ({ date }) => {
   const actualDate = new Date();
+  const newDate = getNewDate(date);
   const [difference, setDifference] = useState(
-    differenceInSeconds(date, actualDate)
+    differenceInSeconds(newDate, actualDate)
   );
 
   const seconds = difference % 60;
