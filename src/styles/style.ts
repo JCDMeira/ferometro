@@ -55,13 +55,17 @@ export const Case = styled.div`
   align-items: center;
 
   position: relative;
+
+  @media (max-width: 920px) {
+    width: auto;
+  }
 `;
 
 export const CaseThermometer = styled.div`
   width: 500px;
-  height: 730px;
+  height: 700px;
   position: absolute;
-  bottom: -128px;
+  bottom: -100px;
   margin-left: 6px;
 
   clip-path: path(
@@ -75,4 +79,11 @@ export const CaseThermometer = styled.div`
 				c0-25.512,17.272-47.784,42-54.16l6-1.544V112h16v224.296l6,1.544C286.73,344.216,304.002,366.488,304.002,392z"
   );
   background-color: ${theme.neon};
+
+  @media (max-width: 920px) {
+    display: none;
+  }
+  @media (max-height: 878px) {
+    display: none;
+  }
 `;

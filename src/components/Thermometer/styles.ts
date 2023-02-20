@@ -15,6 +15,9 @@ export const Thermometer = styled.div`
   @media (max-width: 380px) {
     display: none;
   }
+  @media (max-height: 641px) {
+    display: none;
+  }
 `;
 
 type SliderProps = {
