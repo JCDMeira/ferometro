@@ -22,6 +22,13 @@ body {
 h1 {
   font-size: 3em;
   line-height: 1.1;
+
+  @media (max-height: 700px) {
+    font-size: 1.5em;
+  }
+  @media (max-height: 575px) {
+    font-size: 1em;
+  }
 }
 
 `;
