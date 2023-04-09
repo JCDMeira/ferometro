@@ -35,7 +35,7 @@ export const Clock: react.FC<ThermometerProp> = ({ date }) => {
 
   return (
     <span>
-      Suas próximas féerias começam em{" "}
+      Suas próximas férias começam em{" "}
       <S.NeonText>{dateTimeFormated}</S.NeonText>
       {timeString}
     </span>
