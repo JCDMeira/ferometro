@@ -28,8 +28,14 @@ export const Clock: react.FC<ThermometerProp> = ({ date }) => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setDifference((actual) => actual - 1);
+      setDifference((actual) => {
+        if (actual === 0) return actual;
+        return actual - 1;
+      });
     }, 1000);
+    console.log(difference);
+
+    if (difference <= 0) clearInterval(timer);
     return () => clearInterval(timer);
   }, []);
 
